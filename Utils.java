@@ -34,14 +34,14 @@ public final class Utils {
         return clip;
         //clip.loop(2);
         //Clip theme = AudioSystem.getClip();
-    }//..
+    }//*/
 
     public static void setClipVolume(Clip clip,double gain){
         float db = (float) (Math.log(gain)/Math.log(10.0)*20.0);
         FloatControl gainControl =
                 (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
         gainControl.setValue(db); // Reduce by 'volume' decibels.
-    }//..
+    }//*/
 
     public static Texture loadTexture(String textureFileName){
         GL2 gl = Scene.gl;
@@ -69,7 +69,7 @@ public final class Utils {
         }
 
         return texture;
-    }//..
+    }//*/
 
     public static JLabel mkGraphic(Class c,String image,int x,int y,int w, int h){
         try {
@@ -83,12 +83,12 @@ public final class Utils {
             e.printStackTrace();
         }
         return null;
-    }//..
+    }//*/
 
     public static ImageIcon scaleImageIcon(ImageIcon icon, int w, int h){
         Image img = icon.getImage() ;
         return new ImageIcon(  img.getScaledInstance( w, h,  Image.SCALE_SMOOTH )  );
-    }//..
+    }//*/
 
 
     protected static void startThread(final Logic logic){
@@ -100,7 +100,7 @@ public final class Utils {
                     }catch (Exception e){e.printStackTrace();}
             }
         }).start();
-    }//..
+    }//*/
 
     protected static void startThreadLoop(final Logic logic, final int waitMills){
         new Thread(new Runnable() {
@@ -114,7 +114,7 @@ public final class Utils {
                 }
             }
         }).start();
-    }//..
+    }//*/
 
     protected static FloatBuffer mkFloatBuffer(float vertices[]){
         ByteBuffer vbb = ByteBuffer.allocateDirect(vertices.length * 4);
@@ -123,31 +123,31 @@ public final class Utils {
         fb.put(vertices);    // add the coordinates to the FloatBuffer
         fb.position(0);      // set the buffer to read the first coordinate
         return fb;
-    }//..
+    }//*/
 
     public static void wait(int mils){
         try {
             Thread.sleep(mils);
         }catch (Exception e){}
-    }//..
+    }//*/
 
     public static void playSound(String path){
         AudioPlayer.player.start(Utils.class.getResourceAsStream(path));
-    }//..
+    }//*/
 
     public static float calcDistance(Point3d p1, Point3d p2){
         return (float) Math.sqrt(Math.pow(p1.x-p2.x,2) + Math.pow(p1.y-p2.y,2)+ Math.pow(p1.z-p2.z,2));
-    }//..
+    }//*/
 
     public static float calcDistance(Vector3f p1, Vector3f p2){
         return (float) Math.sqrt(Math.pow(p1.x-p2.x,2) + Math.pow(p1.y-p2.y,2)+ Math.pow(p1.z-p2.z,2));
-    }//..
+    }//*/
 
     protected static float random(int max){
         double rand =  Math.random()*max;
         if((int)(Math.random()*100) < 50)
             rand = -rand;
         return (float) rand;
-    }//..
+    }//*/
 
 }// end Class wrld.Utils
